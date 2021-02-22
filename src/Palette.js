@@ -30,7 +30,7 @@ class Palette extends Component {
                 key={color.id} 
                 paletteId={id}
                 id={color.id}
-                showMore
+                showingFullPalette
             />
         ));
         return (
