@@ -10,8 +10,8 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { ChromePicker } from 'react-color';
 import Button from '@material-ui/core/Button';
+import { ChromePicker } from 'react-color';
 
 const drawerWidth = 400;
 
@@ -73,9 +73,19 @@ const styles = theme => ({
 });
 
 class NewPaletteForm extends Component {
-    state = {
-        open: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            colorValue: "#ddd",
+            open: false
+        }
     }
+
+    handleColorChange = color => {
+      this.setState({
+        colorValue: color.hex
+      });
+    };
 
     handleDrawerOpen = () => {
         this.setState({open: true});
@@ -87,7 +97,8 @@ class NewPaletteForm extends Component {
 
     render() {
         const { classes } = this.props;
-        const { open } = this.state;
+        const { open, colorValue } = this.state;
+
         return (
             <div className={classes.root}>
                 <CssBaseline />
@@ -130,8 +141,9 @@ class NewPaletteForm extends Component {
                         <Button variant='contained' color='primary'>Random Color</Button>
                     </div>
                     <ChromePicker 
-                        color='purple' 
-                        onChangeComplete={newColor => console.log(newColor)}
+                        color={colorValue}
+                        onChange={this.handleColorChange}
+                        onChangeComplete={(color)=>console.log(color)}
                     />
                     <Button variant='contained' color='primary'>Add Color</Button>
                 </Drawer>
