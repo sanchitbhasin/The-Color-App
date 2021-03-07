@@ -24,7 +24,7 @@ const styles = {
         bottom: "0px",
         paddingLeft: "10px",
         padding: "10px",
-        color: "rgba(0,0,0,0.5)",
+        color: "rgba(0,0,0,0.7)",
         letterSpacing: "1px",
         textTransform: "uppercase",
         display: "flex",
