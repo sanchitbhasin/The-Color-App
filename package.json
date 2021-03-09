@@ -10,6 +10,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
     "chroma-js": "^2.1.0",
+    "emoji-mart": "^3.0.1",
     "rc-slider": "^9.7.1",
     "react": "^17.0.1",
     "react-color": "^2.19.3",
