@@ -10,8 +10,9 @@ import {Route, Switch} from 'react-router-dom';
 class App extends Component {
   constructor(props) {
     super(props);
+    const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
     this.state = {
-      palettes: seedColors
+      palettes: savedPalettes || seedColors
     }
     this.savePalette = this.savePalette.bind(this);
   }
@@ -22,10 +23,15 @@ class App extends Component {
     });
   }
 
+  syncLocalStorage() {
+    window.localStorage.setItem("palettes", JSON.stringify(this.state.palettes));
+  }
+
   savePalette(newPalette) {
-    this.setState({
-      palettes: [...this.state.palettes, newPalette]
-    })
+    this.setState(
+        { palettes: [...this.state.palettes, newPalette]}, 
+        this.syncLocalStorage
+      );
   }
 
   render() {
