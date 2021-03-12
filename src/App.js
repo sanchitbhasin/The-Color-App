@@ -6,6 +6,7 @@ import PaletteList from './PaletteList';
 import { generatePalette } from './colorHelpers';
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
+import NotFound from './NotFound';
 
 class App extends Component {
   constructor(props) {
@@ -79,6 +80,11 @@ class App extends Component {
               colorId={routeProps.match.params.colorId} 
               palette={generatePalette(this.findPalette(routeProps.match.params.paletteId))}
             />
+          )}
+        />
+        <Route 
+          render={() => (
+            <NotFound />
           )}
         />
       </Switch>
