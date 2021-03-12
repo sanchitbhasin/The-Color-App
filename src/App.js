@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
+import {Route, Switch} from 'react-router-dom';
 import Palette from './Palette';
 import seedColors from './seedColors';
 import PaletteList from './PaletteList';
 import { generatePalette } from './colorHelpers';
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
-import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {

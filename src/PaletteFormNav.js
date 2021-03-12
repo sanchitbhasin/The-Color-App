@@ -43,8 +43,8 @@ class PaletteFormNav extends Component {
     }
 
     render() {
-        let { classes, open, palettes, handleSubmit } = this.props;
-        let { newPaletteName } = this.state;
+        let { classes, open, palettes, handleSubmit, handleDrawerOpen } = this.props;
+        let { formShowing } = this.state;
 
         return (
             <div className={classes.root}>
@@ -60,7 +60,7 @@ class PaletteFormNav extends Component {
                       <IconButton
                           color="inherit"
                           aria-label="open drawer"
-                          onClick={this.props.handleDrawerOpen}
+                          onClick={handleDrawerOpen}
                           edge="start"
                           className={clsx(classes.menuButton, open && classes.hide)}
                       >
@@ -91,7 +91,7 @@ class PaletteFormNav extends Component {
                     </div>
                 </AppBar>
 
-                {this.state.formShowing && 
+                {formShowing && 
                   <PaletteMetaForm
                     palettes={palettes}
                     handleSubmit={handleSubmit}
